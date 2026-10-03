@@ -1,1 +1,48 @@
-<h1>TokyoWide</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TokyoWide - TikTok Video Manager</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background: #f8f9fa; }
+    .card { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.08); width: 440px; text-align: center; }
+    h2 { margin-bottom: 8px; color: #111; }
+    p { color: #666; font-size: 14px; margin-bottom: 24px; }
+    .btn-tiktok { background: #000; color: #fff; border: none; padding: 12px 24px; border-radius: 6px; font-size: 15px; font-weight: bold; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; width: 100%; justify-content: center; margin-bottom: 20px; }
+    .upload-box { border: 2px dashed #ccc; border-radius: 8px; padding: 24px; margin-top: 15px; background: #fafafa; }
+    .btn-submit { background: #fe2c55; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 15px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>TokyoWide Video Manager</h2>
+    <p>Upload and schedule short-form videos to TikTok</p>
+
+    <!-- 틱톡 로그인 버튼 -->
+    <button class="btn-tiktok" onclick="openLogin()">
+      🎵 Continue with TikTok
+    </button>
+
+    <div id="status" style="font-size: 13px; color: #008a00; display: none; margin-bottom: 15px;">
+      ✔ TikTok Account Connected (@TokyoWideCreator)
+    </div>
+
+    <!-- 비디오 업로드 영역 -->
+    <div class="upload-box">
+      <input type="file" id="videoInput" accept="video/*" style="width: 100%; font-size: 13px;">
+      <button class="btn-submit" onclick="submitVideo()">Direct Post to TikTok</button>
+    </div>
+  </div>
+
+  <script>
+    function openLogin() {
+      // 틱톡 로그인 권한 창 팝업 시뮬레이션
+      alert('Requesting Scopes:\n- user.info.basic (Read profile info)\n- video.publish (Direct Post to TikTok)\n- video.upload (Save as draft)\n\nRedirecting to TikTok OAuth authorization...');
+      document.getElementById('status').style.display = 'block';
+    }
+    function submitVideo() {
+      alert('Uploading video via Content Posting API to user profile successfully!');
+    }
+  </script>
+</body>
+</html>
